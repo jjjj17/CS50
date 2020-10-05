@@ -1,0 +1,25 @@
+ul {
+  font-size: 14px;
+  color: blue;
+}
+
+ol {
+  font-size: 18px;
+  color: blue;
+}
+
+.f, .s {
+  font-family: sans-serif;
+  font-size: 20px;
+  border: 1px solid black;
+}
+
+.s {
+  background-color: orange;
+}
+
+.f {
+  background-color: green;
+}
+
+/*# sourceMappingURL=var.css.map */

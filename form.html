@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+    <title>CS50 test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display:flex;
+            flex-wrap: wrap;
+        }
+
+        .container>div {
+            font-size: medium;
+            background-color: teal;
+            margin: 25px;
+            padding: 25px;
+            width: 150px;
+            color: whitesmoke;
+        }
+        h1, h2, form {
+            color: red;
+        }
+        ul>li {
+            color: royalblue;
+        }
+        input[type=text]{
+            background-color: sandybrown;
+        }
+        input[type=radio]{
+            background-color: springgreen;
+        }
+        ol>li::before{
+            content: "\21d2 Click Here! ";
+            font-weight: bold;
+        }
+        @media (min-width: 500px){
+            h1::before {
+                content: "Welcome to my page! ";
+            }
+        }
+
+        @media (max-width: 499px){
+            h1::before {
+                content: "Welcome! ";
+            }
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <h1>Look around 😄</h1>
+            <ul>
+                <li><a href="#">Item 1</li>
+                <li>Item 2</li>
+                <ol>
+                    <li>Item 45</li>
+                    <li>Item 999</li>
+                </ol>
+            </ul>
+        </div>
+        <div>
+            <input name="name" type="text" placeholder="Name">
+            <input name="password" type="password" placeholder="Password">
+        </div>
+        <div>
+            Select your favorite color:
+            <input name="color" type="radio" value="red"> Red
+            <input name="color" type="radio" value="yellow"> Yellow
+            <input name="color" type="radio" value="green"> Green
+            <input name="color" type="radio" value="purple"> Purple
+        </div>
+        <div>
+            <input list="countries" name="country"  placeholder="Country">
+            <datalist id="countries">
+                <option value="Argentina">
+                <option value="Brasil">
+                <option value="Chile">
+            </datalist>
+        </div>
+    </form>
+    <div class="container">
+        <div>A: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>B: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>C: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>D: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>E: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>F: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>G: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>H: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>I: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>J: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>K: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+        <div>L: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula libero lacinia erat dapibus, vitae rutrum quam aliquam. Duis ornare.</div>
+    </div>
+</body>
