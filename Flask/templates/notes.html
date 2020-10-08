@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Notetaker</title>
+    </head>
+    <body>
+        <h1>🥳 Welcome to your notes! 🥳</h1>
+        <h2>Enjoy your notes: </h2>
+        <ul>
+            {% for note in notes %}
+            <li>{{ note }}</li>
+            {% endfor %}
+        </ul>
+        <h1>Want to take another note?🤔</h1>
+        <h3>Go ahead!</h3>
+        <form action="{{ url_for('note') }}" method="post">
+            <input type="text" name="note" placeholder="Your new note here!😎">
+            <button>Send my note 😍</button>
+    </body>
+    </html>
