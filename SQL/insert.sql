@@ -6,7 +6,7 @@ INSERT INTO flights(origin, destination, duration) VALUES('MILAN', 'BEIJING', 75
 INSERT INTO flights(origin, destination, duration) VALUES('WASHINGTON DC', 'BRISBANE', 1620);
 INSERT INTO flights(origin, destination, duration) VALUES('WELLINGTON', 'SANTIAGO', 1980);
 
---UPDATE flights SET duration = 430 WHERE ORIGIN = 'NEW YORK' AND destination = 'LONDON';
+UPDATE flights SET duration = 430 WHERE ORIGIN = 'NEW YORK' AND destination = 'LONDON';
 
 --DELETE FROM flights WHERE destination = 'BOGOTA';
 
@@ -23,3 +23,5 @@ INSERT INTO airports (city, airportcode) VALUES ('BEIJING', 'PEK');
 INSERT INTO airports (city, airportcode) VALUES ('BRISBANE', 'BNE');
 INSERT INTO airports (city, airportcode) VALUES ('SANTIAGO', 'SCL');
 INSERT INTO airports (city, airportcode) VALUES ('MILAN', 'MXP');
+
+-- BEGIN --> COMMIT

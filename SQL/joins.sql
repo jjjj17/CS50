@@ -1,1 +1,1 @@
-SELECT a1.id as originid, a2.id as destinationid, duration FROM flights f inner join airports a1 on origin = a1.city inner join airports a2 on destination = a2.city;
+SELECT a1.id AS originid, a2.id AS destinationid, duration FROM flights f INNER JOIN airports a1 ON origin = a1.city INNER JOIN airports a2 ON destination = a2.city;
