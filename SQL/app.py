@@ -12,8 +12,11 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    flights = db.execute("SELECT * FROM flights").fetchall()
-    origins = db.execute("SELECT city FROM airports").fetchall()
+    try:
+        flights = db.execute("SELECT * FROM flights").fetchall()
+        origins = db.execute("SELECT city FROM airports").fetchall()
+    finally:
+        db.close()
     destinations = origins
     return render_template("index.html", flights=flights, origins = origins, destinations = destinations)
 
@@ -27,24 +30,36 @@ def newflight():
     
     if db.execute("SELECT city FROM airports WHERE city IN (:o, :d)", {"o": origin, "d": destination}).rowcount != 2:
         return render_template("error.html", message = "One of the cities you selected isn't available. Please try again!")
-    db.execute("INSERT INTO flights (origin, destination, duration) VALUES (:origin, :destination, 99999999)", {"origin": origin, "destination":destination})
-    db.commit()
+    try:
+        db.execute("INSERT INTO flights (origin, destination, duration) VALUES (:origin, :destination, 99999999)", {"origin": origin, "destination":destination})
+        db.commit()
+    finally:
+        db.close()
     return render_template("success.html", origin = origin, destination=destination)
 
 
 @app.route("/requestedflights")
 def requestedflights():
-    reqflights = db.execute("SELECT origin, destination FROM flights WHERE duration = 99999999").fetchall()
+    try:
+        reqflights = db.execute("SELECT origin, destination FROM flights WHERE duration = 99999999").fetchall()
+    finally:
+        db.close()
     return render_template("reqflights.html", flights = reqflights)
 
 @app.route("/flights")
 def flights():
-    flights = db.execute("SELECT * FROM flights").fetchall()
+    try:
+        flights = db.execute("SELECT * FROM flights").fetchall()
+    finally:
+        db.close()
     return render_template("flights.html", flights=flights)
 
 @app.route("/flights/<int:flight_id>")
 def flight(flight_id):
-    flight = db.execute("SELECT f.id as id, f.origin as origin, a1.airportcode as ocode, f.destination as destination, a2.airportcode as dcode, f.duration as duration, f.duration/60 as dih FROM flights f INNER JOIN airports a1 ON a1.city = f.origin INNER JOIN airports a2 ON a2.city = f.destination WHERE f.id=:id", {"id":flight_id}).fetchone()
-    if flight is None:
-        return render_template("error.html", message="The flight you are looking for is not in our database 🙃")
-    return render_template("flight.html", flight_id=flight.id, flight_origin = flight.origin, flight_destination = flight.destination, ocode = flight.ocode, dcode = flight.dcode, flight_duration = flight.duration)    
+    try:
+        flight = db.execute("SELECT f.id as id, f.origin as origin, a1.airportcode as ocode, f.destination as destination, a2.airportcode as dcode, f.duration as duration, f.duration/60 as dih FROM flights f INNER JOIN airports a1 ON a1.city = f.origin INNER JOIN airports a2 ON a2.city = f.destination WHERE f.id=:id", {"id":flight_id}).fetchone()
+        if flight is None:
+            return render_template("error.html", message="The flight you are looking for is not in our database 🙃")
+    finally:
+        db.close()
+    return render_template("flight.html", flight_id=flight.id, flight_origin = flight.origin, flight_destination = flight.destination, ocode = flight.ocode, dcode = flight.dcode, flight_duration = flight.duration)
