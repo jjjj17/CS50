@@ -7,7 +7,8 @@ engine = create_engine('postgresql+psycopg2://postgres:test123@host.docker.inter
 db = scoped_session(sessionmaker(bind=engine))
 
 def main():
-    flights = db.execute("SELECT origin, destination, duration FROM flights")
+    flights = db.execute("SELECT origin, destination, duration FROM flights").fetchall()
+    print(type(flights))
     for flight in flights:
         print(f"El vuelo salió de {flight.origin} y llegó a {flight.destination} luego de {flight.duration} minutos")
 

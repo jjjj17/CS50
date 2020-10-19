@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flights Requested
+{% endblock %}
+
+{% block body %}
+    <h1>
+        The following flights have been requested: 
+    </h1>
+
+    <div>
+        <ul>
+            {% for flight in flights %}
+                <li>From {{ flight.origin }} to {{ flight.destination }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

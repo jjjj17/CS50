@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Thank you for requesting the new flight from {{ origin }} to {{ destination }}.
+    </h1>
+
+    <h2>
+        We are working to determine it's flight time and cost, we'll let you know as soon as it's available.
+    </h2>
+{% endblock %}

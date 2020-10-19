@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ flight_id }}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        ✈ Welcome to flight {{ flight_id }}! ✈
+    </h1>
+
+    <div>
+        <h2>This flight goes from {{ flight_origin }} to {{ flight_destination }}</h2>
+        <h3>The duration is {{ flight_duration }} minutes.</h3>
+        <h4>Airports: {{ ocode }} ➡️ {{ dcode }} </h4>
+
+    </div>
+{% endblock %}
