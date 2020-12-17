@@ -8,6 +8,7 @@ class Flight(db.Model):
     origin = db.Column(db.String, nullable=False)
     destination = db.Column(db.String, nullable=False)
     duration = db.Column(db.Integer, nullable=False)
+    db.relationship("Passenger", backref="flight", lazy=True)
 
 class Passenger(db.Model):
     __tablename__ = "terminal_four_passengers"
