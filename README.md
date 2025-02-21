@@ -1,2 +1,2 @@
 
-#CD50 webpage usign HTML, CSS, SQL & Python.
+# CD50 webpage usign HTML, CSS, SQL & Python.
