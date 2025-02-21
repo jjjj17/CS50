@@ -1,4 +1,2 @@
 
-# Página Web creada en el contexto del curso CS50, contiene archivos HTML, CSS, SQL y Python.
-
-## Solamente desarrollada con fines educativos y personales
+#CD50 webpage usign HTML, CSS, SQL & Python.
